@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testfile/HomePage.dart';
 import 'package:testfile/loginPage.dart';
 import 'package:testfile/routes.dart';
 
@@ -18,10 +19,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home:const Text('This is home page.'),
-      initialRoute: '/LoginPage',
-      routes: {'/LoginPage': (context) => const loginPage(),
-      "/home": (context) =>  MyApp()
+      initialRoute: MyRoutes.loginRoute,
+      routes: {MyRoutes.loginRoute: (context) => const loginPage(),
+                MyRoutes.homeRoute: (context) =>const  HomePage()
       },
+      
     );
   }
 }

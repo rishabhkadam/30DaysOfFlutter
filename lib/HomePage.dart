@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'drawer.dart';
+import 'package:testfile/widgets/item_widgets.dart';
+import 'widgets/drawer.dart';
+import 'package:testfile/catelog.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,8 +16,13 @@ class HomePage extends StatelessWidget {
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: const Center(child: Text("This is home page.")),
-      drawer: MyDrawer(),
+      body: ListView.builder(
+        itemCount: CatalogModel.items.length,
+        itemBuilder: (context, index) {
+          return ItemWidget(item: CatalogModel.items[index],);
+        },
+      ),
+      drawer: const MyDrawer(),
     );
   }
 }

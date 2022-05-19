@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:testfile/HomePage.dart';
+import 'package:testfile/widgets/Theme.dart';
 import 'package:testfile/loginPage.dart';
 import 'package:testfile/routes.dart';
+import 'package:testfile/catelog.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -17,10 +21,15 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home:const Text('This is home page.'),
-      initialRoute: '/LoginPage',
-      routes: {'/LoginPage': (context) => const loginPage(),
-      "/home": (context) =>  MyApp()
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.light,
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
+      home: const Text('This is home page.'),
+      initialRoute: MyRoutes.loginRoute,
+      routes: {
+        MyRoutes.loginRoute: (context) => const loginPage(),
+        MyRoutes.homeRoute: (context) => const HomePage()
       },
     );
   }
